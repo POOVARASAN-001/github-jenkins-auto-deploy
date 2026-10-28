@@ -1,0 +1,20 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auto-deploy-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: auto-deploy-app
+  template:
+    metadata:
+      labels:
+        app: auto-deploy-app
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:stable
+          ports:
+            - containerPort: 80
